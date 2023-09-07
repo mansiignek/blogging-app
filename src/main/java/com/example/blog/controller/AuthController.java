@@ -65,6 +65,7 @@ public class AuthController {
 
         @PostMapping("/generateOtp")
         public ResponseEntity<String> generateOtp(@RequestBody Request request) throws CustomException {
+            System.out.println();
             try {
 
                 String otp = otpServices.generateOtp(request.getEmail());
