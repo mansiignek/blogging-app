@@ -24,16 +24,16 @@ public class Blog {
     @Column(name="Blog_name")
     private String blogName;
 
-    public String getDraftblog() {
-        return draftblog;
-    }
+//    public String getDraftblog() {
+//        return draftblog;
+//    }
+//
+//    public void setDraftblog(String draftblog) {
+//        this.draftblog = draftblog;
+//    }
 
-    public void setDraftblog(String draftblog) {
-        this.draftblog = draftblog;
-    }
-
-    @Column(name="draftblog")
-    private String draftblog;
+//    @Column(name="draftblog")
+//    private String draftblog;
 
     public String getBlogDescription() {
         return blogDescription;

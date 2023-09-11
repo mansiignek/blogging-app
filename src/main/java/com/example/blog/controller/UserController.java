@@ -51,7 +51,7 @@ public class UserController {
     public ResponseEntity<String> updateUser(@PathVariable Long id, @RequestBody User user) throws CustomException {
         try {
             userService.validId(id);
-            userService.validemail(user.getEmail());
+           // userService.validemail(user.getEmail());
          userService.updateUser(id, user);
          return new ResponseEntity<>("data successfully updated", HttpStatus.OK);
     }catch (CustomException e) {

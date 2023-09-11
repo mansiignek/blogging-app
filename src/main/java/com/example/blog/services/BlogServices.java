@@ -21,6 +21,6 @@ public interface BlogServices {
     public void validUserId(long userId) throws CustomException;
     public List<Category> categoryList();
 
-    public List<List<Blog>> getBlogofFriends(long userId);
+//    public List<List<Blog>> getBlogofFriends(long userId);
 
 }

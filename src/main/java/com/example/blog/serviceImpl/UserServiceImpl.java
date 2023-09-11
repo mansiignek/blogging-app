@@ -68,7 +68,9 @@ import java.util.*;
     public User updateUser(Long id, User updatedUser) throws CustomException {
         User user = userRepository.findById(id).orElse(null);
         if (user != null) {
-            user.setEmail(updatedUser.getEmail());
+            user.setProfileStatus("complete");
+            user.setName(updatedUser.getName());
+            user.setBirthday(updatedUser.getBirthday());
             return userRepository.save(user);
         }
         throw new CustomException("user not found");

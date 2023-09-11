@@ -77,15 +77,35 @@ public class OtpServicesImpl implements OtpServices {
         return String.valueOf(randomNumber);
     }
 @Override
-    public void validToken(String email) throws CustomException {
+    public void validToken(String email,String otpFromUser) throws CustomException {
         Instant otpRequestedTime = otpRequestTimes.get(email);
+//    User user = userRepository.findByEmail(email);
+//
+//    if (user != null) {
+//        long id = user.getId();
+//        Otp otp = otpRepository.findByUserIdId(id);
+//
+//        if (otp != null) {
+//            String otpFromDb = otp.getOtp();
+//            String hashedOtpFromUser = passwordEncoder.encode(otpFromUser);
+//            if (!hashedOtpFromUser.equals(otpFromDb)) {
+//                throw new CustomException("Wrong OTP");
+//            }
+//        } else {
+//            throw new CustomException("No OTP found for the user");
+//        }
+//    } else {
+//        throw new CustomException("User not found");
+//    }
+
         if (otpRequestedTime != null) {
             long timeDifferenceSeconds = Duration.between(otpRequestedTime, Instant.now()).getSeconds();
             if (timeDifferenceSeconds > 300) {
                 throw new CustomException("Token is expired");
             }
         } else {
-            throw new CustomException("No OTP request found for this email");
+            throw new CustomException("Wrong Otp");
         }
     }
+
 }

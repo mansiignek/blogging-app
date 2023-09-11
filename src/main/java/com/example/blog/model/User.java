@@ -30,9 +30,9 @@ public class User{
     @Column(name="profileStatus")
     private String profileStatus;
 
-    @Column(name="friendList")
-    @ElementCollection
-    private List<Long> friendList;
+//    @Column(name="friendList")
+//    @ElementCollection
+//    private List<Long> friendList;
 
     @Column(name="countOfBlogs")
     private Integer countOfBlogs;
@@ -60,13 +60,13 @@ public class User{
         this.profileStatus = profileStatus;
     }
 
-    public List<Long> getFriendList() {
-        return friendList;
-    }
-
-    public void setFriendList(List<Long> friendList) {
-        this.friendList = friendList;
-    }
+//    public List<Long> getFriendList() {
+//        return friendList;
+//    }
+//
+//    public void setFriendList(List<Long> friendList) {
+//        this.friendList = friendList;
+//    }
 
 
 

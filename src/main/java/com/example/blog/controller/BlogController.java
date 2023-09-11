@@ -78,14 +78,14 @@ public class BlogController {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
-    @GetMapping("/friendsBlog/{id}")
-    public ResponseEntity<?> friendsBlog(@PathVariable Long userId) throws CustomException {
-        try {
-            blogServices.validUserId(userId);
-            List<List<Blog>> friendBlog = blogServices.getBlogofFriends(userId);
-            return new ResponseEntity<>(friendBlog, HttpStatus.OK);
-        }catch (CustomException e) {
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
-        }
-    }
+//    @GetMapping("/friendsBlog/{id}")
+//    public ResponseEntity<?> friendsBlog(@PathVariable Long userId) throws CustomException {
+//        try {
+//            blogServices.validUserId(userId);
+//            List<List<Blog>> friendBlog = blogServices.getBlogofFriends(userId);
+//            return new ResponseEntity<>(friendBlog, HttpStatus.OK);
+//        }catch (CustomException e) {
+//            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+//        }
+//    }
 }

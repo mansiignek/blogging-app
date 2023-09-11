@@ -34,9 +34,9 @@ public class BlogServiceImpl implements BlogServices {
         }
         if (user.isPresent()) {
             blog.setUserId(user.get());
-            if (blog.getDraftblog() == null) {
+
                 user.get().setCountOfBlogs(user.get().getCountOfBlogs() + 1);
-            }
+
         }
 
         return blogRepository.save(blog);
@@ -120,15 +120,15 @@ public class BlogServiceImpl implements BlogServices {
     public List<Category> categoryList() {
         return categoryRepository.findAll();
     }
-    @Override
-    public List<List<Blog>> getBlogofFriends(long userId) {
-        User user = userRepository.findById(userId).orElse(null);
-        List<Long> friendList = user.getFriendList();
-        List<List<Blog>> friendsBlogList = new ArrayList<>();
-        for (Long frienndId : friendList) {
-            List<Blog> blog = blogRepository.findAllByUserIdId(frienndId);
-            friendsBlogList.add(blog);
-        }
-        return friendsBlogList;
-    }
+//    @Override
+//    public List<List<Blog>> getBlogofFriends(long userId) {
+//        User user = userRepository.findById(userId).orElse(null);
+//        List<Long> friendList = user.getFriendList();
+//        List<List<Blog>> friendsBlogList = new ArrayList<>();
+//        for (Long frienndId : friendList) {
+//            List<Blog> blog = blogRepository.findAllByUserIdId(frienndId);
+//            friendsBlogList.add(blog);
+//        }
+//        return friendsBlogList;
+//    }
 }

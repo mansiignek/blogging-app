@@ -43,12 +43,14 @@ public class AuthController {
     public ResponseEntity<?> createAuthenticationToken(@RequestBody Request request) {
         try {
             // Validate the OTP token
-            otpServices.validToken(request.getEmail());
+            otpServices.validToken(request.getEmail(), request.getOtp());
 
             // Authenticate the user
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getEmail(), request.getOtp()));
         } catch (CustomException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
+        }catch (Exception e){
+            return ResponseEntity.badRequest().body(e.getMessage()+": Wrong Otp");
         }
 
         // If authentication is successful, generate a JWT token
@@ -65,7 +67,6 @@ public class AuthController {
 
         @PostMapping("/generateOtp")
         public ResponseEntity<String> generateOtp(@RequestBody Request request) throws CustomException {
-            System.out.println();
             try {
 
                 String otp = otpServices.generateOtp(request.getEmail());
